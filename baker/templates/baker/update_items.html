@@ -1,0 +1,15 @@
+<hr>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<a href="{% url 'baker:home' %}">Back</a>
+<hr>
+<h2>Update items</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="Name" placeholder="Enter the name of the product">
+        <br><br>
+        <input type="text" name="Update_name" placeholder="Update name">
+        <br><br>
+        <input type="number" name="Update_price" placeholder="Update price">
+        <br><br>
+        <input type="submit" name="submit" value="Update">
+    </form>

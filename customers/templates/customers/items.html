@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Orders</title>
+        <h2>Order</h2>
+    </head>
+    <body>
+        <hr>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if item %}
+                {% for item in item %}
+                    <input type="checkbox" name="items" value="{{item.id}}">
+                    <label for="item{{forloop.counter}}">{{item.name}}</label>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <strong>No items available</strong>
+            {% endif %}
+            <input type="submit" value="Add to cart">
+        </form>
+        </body>
+</html>

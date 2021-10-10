@@ -1,0 +1,12 @@
+<hr>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<a href="{% url 'baker:home' %}">Back</a>
+<hr>
+<h2>Delete items</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="Name" placeholder="Name">
+        <br><br>
+        <input type="submit" name="Submit" value="Delete">
+        <br><br>
+    </form>

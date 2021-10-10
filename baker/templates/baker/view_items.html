@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>View items</title>
+    </head>
+    <body>
+    <h2>View items</h2>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <hr>
+    <a href="{% url 'baker:home' %}">Back</a>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {% if objects %}
+            {% for obj in objects %}
+            <strong>
+            {{obj.name}}
+            <br>
+            </strong>
+            {% endfor %}
+        {% else %}
+        <strong>No items</strong>
+        {% endif %}
+    </form>
+    </body>
+</html>

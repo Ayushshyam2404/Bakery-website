@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Orders</title>
+    </head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <h2>Orders</h2>
+    <body>
+        {% if latest_orders %}
+            {% for order in latest_orders %}
+                <label for="name">Customer Name: </label>
+                {{order.name}}
+                <br>
+                <label for="address">Delivery address: </label>
+                {{order.address}}
+                <br>
+                <label for="item">Item: </label>
+                {{order.item_name}}
+                <br>
+                <label for="num">Customer Contact: </label>
+                {{order.num}}
+                <br>
+                <br>
+            {% endfor %}
+        {% else %}
+            <strong>No orders</strong>
+        {% endif %}
+    </body>
+</html>

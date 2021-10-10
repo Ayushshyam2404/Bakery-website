@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <h1>Icing sugar Admin</h1>
+
+    <a href="{% url 'baker:home' %}">Home</a>
+    <span>/</span>
+
+    {% if current_user %}
+        <a href="{% url 'baker:logout' %}">Logout</a>
+        <hr>
+        <h2>Welcome <span style="color: rgb(255, 30, 30);">{{current_user}}</span>!</h2>
+        <hr>
+        <a href="{% url 'baker:add' %}">Add items</a>
+        <hr>
+        <a href="{% url 'baker:viewer' %}">View items</a>
+        <hr>
+        <a href="{% url 'baker:update_item' %}">Update items</a>
+        <hr>
+        <a href="{% url 'baker:delete_item' %}">Delete item</a>
+        <hr>
+        <a href="{% url 'baker:orders' %}">Orders</a>
+        <hr>
+    {% else %}
+        <a href="{% url 'baker:login' %}">Login</a>
+        <span>/</span>
+        <a href="{% url 'baker:signup' %}">Sign Up</a>
+        <hr>
+        <h2>Login to access this website!</h2>
+    {% endif %}
+
+
+    {% block body %}{% endblock %}
+   
+</body>
+</html>

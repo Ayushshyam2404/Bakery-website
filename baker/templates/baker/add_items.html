@@ -1,0 +1,13 @@
+<h2>Add items</h2>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<form method="POST">
+    <hr>
+    <a href="{% url 'baker:home' %}">Cancel</a>
+    <hr>
+    {% csrf_token %}
+    <input type="text" name="Name" placeholder="Item name">
+    <br><br>
+    <input type="number" name="Price" placeholder="Item price">
+    <br><br>
+    <input type="submit" name="submit" value="Add">
+</form>
