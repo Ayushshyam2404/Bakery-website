@@ -35,7 +35,7 @@ def login(request):
            return redirect("customers:home")
         else:
             return HttpResponse('Please enter a valid username or password')
-    return render(request, 'customers/login.html', {})
+    return render(request, 'customers/index.html', {})
 def logout(request):
     try:
         del request.session['username']
