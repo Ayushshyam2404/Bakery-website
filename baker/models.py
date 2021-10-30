@@ -5,9 +5,9 @@ from django.db.models.base import Model
 class User(models.Model):
     username=models.CharField(max_length=100)
     password=models.CharField(max_length=40)
-    email=models.EmailField()
+    email=models.CharField(max_length=100)
     def __str__(self):
-        sen=f"Name is :{self.username}, Password is :{self.password}"
+        sen=f"""Name is :{self.username}, Email is :{self.email}, """
         return sen
 class Items(models.Model):
     name=models.CharField(max_length=100)

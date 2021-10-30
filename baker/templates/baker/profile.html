@@ -1,39 +1,17 @@
 <html>
+   <head>
+      <title>Profile</title>
+   </head>
    <body>
-   
-      <form name = "form" enctype = "multipart/form-data" 
-         action = "{% url "baker:signup" %}" method = "POST" >{% csrf_token %}
-         
-         <div style = "max-width:470px;">
-            <center>  
-               <input type = "text" style = "margin-left:20%;" 
-               placeholder = "username" name = "username" />
-            </center>
-         </div>
-			
+      <hr>
+      <a href="{% url 'baker:home' %}">Back</a>
+      <hr>
+      {% if current_user %}
+      <label for="Username">Username: </label><br>
+         {{current_user.username}}
          <br>
-         
-         <div style = "max-width:470px;">
-            <center> 
-               <input type = "password" style = "margin-left:20%;" 
-                  placeholder = "password" name = "password" />
-            </center>
-         </div>
-			
-         <br>
-         
-         <div style = "max-width:470px;">
-            <center> 
-            
-               <button style = "border:0px;background-color:#4285F4; margin-top:8%; 
-                  height:35px; width:80%; margin-left:19%;" type = "submit" value = "Login" >
-                  <strong>Login</strong>
-               </button>
-               
-            </center>
-         </div>
-         
-      </form>
-      
+         <label for="Email">Email: </label><br>
+         {{current_user.email}}
+      {% endif %}
    </body>
 </html>

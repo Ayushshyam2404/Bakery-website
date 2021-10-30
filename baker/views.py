@@ -94,3 +94,12 @@ def delete_item(request):
 def orders(request):
     latest_orders=Order.objects.all()
     return render(request, 'baker/orders.html', {'latest_orders':latest_orders})
+def profile(request):
+    if 'username' in request.session:
+        current_user=request.session['username']
+        if current_user:
+            usr=User.objects.get(username=current_user)
+            param={'current_user':usr}
+            return render(request, 'baker/profile.html', param)
+        else:
+            return redirect('baker:home')
