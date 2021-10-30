@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
+    <style>
+        ul
+        {
+            list-style: none;
+            margin: 0%;
+            padding: 0%;
+            overflow: hidden;
+            background-color: red;
+        }
+        li
+        {
+            float: left;
+        }
+        li a
+        {
+            display: block;
+            color:black;
+            text-align: center;
+            padding: 19px;
+            margin: 0px;
+            text-decoration: none;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>{% block title %} Admin {% endblock %}</title>
+    <link rel="icon" type="image/png/" href="https://icons.iconarchive.com/icons/iconsmind/outline/256/Chef-Hat-2-icon.png">
 </head>
-<body>
-    <h1>Icing sugar Admin</h1>
+    <body style="background-color: black;" >
 
-    <a href="{% url 'baker:home' %}">Home</a>
-    <span>/</span>
+        <h1 style="color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; text-align: center;">Icing sugar Admin</h1>
 
-    {% if current_user %}
-        <a href="{% url 'baker:logout' %}">Logout</a>
-        <hr>
-        <h2>Welcome <span style="color: rgb(255, 30, 30);">{{current_user}}</span>!</h2>
-        <hr>
-        <a href="{% url 'baker:add' %}">Add items</a>
-        <hr>
-        <a href="{% url 'baker:viewer' %}">View items</a>
-        <hr>
-        <a href="{% url 'baker:update_item' %}">Update items</a>
-        <hr>
-        <a href="{% url 'baker:delete_item' %}">Delete item</a>
-        <hr>
-        <a href="{% url 'baker:orders' %}">Orders</a>
-        <hr>
+        {% if current_user %}
+        <!-- <hr>
+        <h2>Welcome <span style="color: rgb(255, 30, 30);">{{current_user}}</span>!</h2> -->
+        <ul>
+            <li><a href="{% url 'baker:home' %}">Home</a></li>
+            <li> <a href="{% url 'baker:add' %}">Add</a> </li>
+            <li> <a href="{% url 'baker:viewer' %}">View</a> </li>
+            <li> <a href="{% url 'baker:update_item' %}">Update</a> </li>
+            <li> <a href="{% url 'baker:delete_item' %}">Delete</a> </li>
+            <li> <a href="{% url 'baker:orders' %}">Orders</a> </li>
+            <li><a href="{% url 'baker:logout' %}">Logout</a></li>
+        </ul>
+        <h2 style="color: white;">Welcome <span style="color: rgb(255, 30, 30);">{{current_user}}</span>!</h2>
+        <br>
+        <img src="https://www.justbake.in/assets/img/slider/IMG-20210525-WA0025.jpg" alt="cake" style="width: 100%;">
     {% else %}
         <a href="{% url 'baker:login' %}">Login</a>
         <span>/</span>
@@ -32,9 +54,6 @@
         <hr>
         <h2>Login to access this website!</h2>
     {% endif %}
-
-
     {% block body %}{% endblock %}
-   
 </body>
 </html>
